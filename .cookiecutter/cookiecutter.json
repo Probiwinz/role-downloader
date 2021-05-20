@@ -1,0 +1,12 @@
+{
+    "_template": "ansible-workbench/",
+    "author": "Niall Byrne",
+    "company": "Shared Vision Solutions",
+    "description": "Downloads remote content for manual user installation.",
+    "email": "niall@niallbyrne.ca",
+    "galaxy_namespace_slug": "osx_provisioner",
+    "galaxy_role_slug": "role_downloader",
+    "github_handle": "osx_provisioner",
+    "project_name": "role-downloader",
+    "project_slug": "role-downloader"
+}
