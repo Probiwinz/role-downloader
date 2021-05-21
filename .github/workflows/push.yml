@@ -78,47 +78,8 @@ jobs:
         run: |
           ./.github/scripts/notifications.sh "${NOTIFICATION}" ":x: molecule linting has failed!"
 
-  molecule_test:
-
-    runs-on: ubuntu-latest
-    strategy:
-      max-parallel: 4
-      matrix:
-        python-version: [3.7]
-
-    steps:
-
-      - name: Molecule Test -- Checkout Repository
-        uses: actions/checkout@v1
-      - name: Molecule Test -- Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v1
-        with:
-          python-version: ${{ matrix.python-version }}
-
-      - name: Molecule Test -- Setup Environment
-        run: |
-          source ./.github/scripts/setup.sh
-        env:
-          WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
-      - name: Molecule Test -- Install Requirements
-        run: |
-          pip install poetry
-          poetry install
-
-      - name: Molecule Test -- Run docker1 Scenario
-        run: |
-          poetry run molecule test -s docker1
-
-      - name: Molecule Test -- Report Job Status (Success)
-        run: |
-          ./.github/scripts/notifications.sh "${NOTIFICATION}" ":white_check_mark: molecule test was successful!"
-      - name: Molecule Test -- Report Job Status (Failure)
-        if: failure()
-        run: |
-          ./.github/scripts/notifications.sh "${NOTIFICATION}" ":x: molecule test has failed!"
-
   release:
-    needs: [molecule_test, molecule_lint, documentation_test, security_test]
+    needs: [molecule_lint, documentation_test, security_test]
 
     runs-on: ubuntu-latest
 

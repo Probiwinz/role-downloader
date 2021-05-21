@@ -5,6 +5,6 @@
   tasks:
     - name: Load Scenario Variables
       include_vars: vars/main.yml
-    - name: "Include osx_provisioner.role_downloader"
+    - name: "Include osx_provisioner.downloader"
       ansible.builtin.include_role:
-        name: "osx_provisioner.role_downloader"
+        name: "osx_provisioner.downloader"

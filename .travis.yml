@@ -6,7 +6,7 @@ jobs:
     - os: osx
       osx_image: xcode12.5
       env:
-        - SCENARIO=hostmachine1
+        - SCENARIO=downloads
 before_install: []
 install:
   - sudo python3 -m pip install poetry
@@ -14,3 +14,6 @@ install:
 script:
   - poetry run molecule lint
   - poetry run molecule test -s "${SCENARIO}"
+notifications:
+  slack:
+    secure: qYF9FPkr6OXHrjuydXyTyOkuuGtHteFcYxQdkmLhxcsUQyubnvrQE3/xI1xrDkGQKeDTgguq2IIEnkyMt4JE8Qxx2DXT39/e1S7+703elWI8ngMtWX1klM7oBC1u9b4QZ8NGCAzBhwhpQiMpA4qDE3tFVPBrzlm8X5rjhxNPcKSAN/IkAYgD6D6AsTJTCvWUIoWARhQPEleHugeKgkGdJtGbBeSY4zhvPKyDoHoRwJr3OMbloC7SRXNh7V0rZmsih26exmAzbw8kdLSlUnnLyVwDMoR+0Q10nxi89MKLFpOqhK3kVTlcMAPFH6pLN8uSslRWidUDWLmGbTMuUrBAiSpyf0/8RHcF6caB1IMvPB9KymBmgMuzP1g8rK2NJZQ6Uhungq2sMAPnwUuhHJdxROOTjZmp0DPFaYPbMtR9kB4OIpTTIjhLDhKk1R0NbSDn2Am189f4mMYGsrpLlyM4Y9MP61Es6109slRR4B2vNcJfQIu1a7panVuQlvWNCuaaokJOR4/GbQ9FHu2Sflt3y7MSr7PQDbpNu1i74b3ccslenljr7CBmiSsVKFtaij6FuBGiaMlG2aSpAZTBYc0daJGc90WtFFvAiIKXvIv3hxEH7uvGhUndiF1f3MA47eeR11RaENq5nfY+h/LdXp9aQ34b9bmtSAHDF7eRYWP0AnU=

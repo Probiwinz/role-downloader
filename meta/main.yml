@@ -1,9 +1,9 @@
 ---
 galaxy_info:
-  role_name: role_downloader
+  role_name: downloader
   namespace: osx_provisioner
   author: Niall Byrne
-  description: Downloads remote content for manual user installation.
+  description: Ansible role that fetches remote content and places in a configurable location.
   company: Shared Vision Solutions
   license: MPL-2
   platforms:

@@ -1,5 +1,15 @@
 ---
-# tasks file for role-downloader
+# tasks file for downloader
 
-- name: Placeholder Task
-  debug: msg="Your dedication and hard work goes here."
+- name: Download Remote Urls
+  become: true
+  become_user: "{{ download_save_user }}"
+  ansible.builtin.get_url:
+    url: "{{ item.url }}"
+    dest: "{{ download_save_location }}/{{ item.name }}"
+    owner: "{{ download_save_user }}"
+    timeout: "{{ download_timeout }}"
+    mode: 0644
+  loop: "{{ download_remote_urls }}"
+  tags:
+    - downloader

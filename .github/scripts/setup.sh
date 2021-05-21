@@ -9,7 +9,7 @@ main() {
   echo "WEBHOOK_URL=${WEBHOOK_URL}" >> "$GITHUB_ENV"
   echo "PROJECT_NAME=${PROJECT_NAME}" >> "$GITHUB_ENV"
   echo "NOTIFICATION=${PROJECT_NAME} [${BRANCH_OR_TAG}]" >> "$GITHUB_ENV"
-  echo "USERNAME=osx_provisioner" >> "$GITHUB_ENV"
+  echo "USERNAME=osx-provisioner" >> "$GITHUB_ENV"
 }
 
 main
